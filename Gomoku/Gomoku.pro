@@ -11,11 +11,14 @@ CONFIG += c++17
 SOURCES += \
     gomokumodel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    xowidget.cpp
 
 HEADERS += \
     gomokumodel.h \
-    mainwindow.h
+    mainwindow.h \
+    player.h \
+    xowidget.h
 
 FORMS += \
     mainwindow.ui
