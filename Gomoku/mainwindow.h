@@ -24,10 +24,16 @@ private slots:
     void on_tableInitialized();
     void on_tableChanged(int x, int y, Player playerSelected);
     void on_gameWon(Player player);
+    void on_newGameTriggered();
+
+private:
+
+    void resetButtonsConnections();
 
 private:
     Ui::MainWindow *ui;
     GomokuModel* _model;
+    int _size;
 
     QVector<QVector<XOWidget*>> _table;
 };

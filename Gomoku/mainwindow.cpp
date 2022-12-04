@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "newgamedialog.h"
+
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_model, &GomokuModel::tableChanged, this, &MainWindow::on_tableChanged);
     connect(_model, &GomokuModel::gameWon, this, &MainWindow::on_gameWon);
 
-    _model->initTable(6);
+    _size = width();
 }
 
 MainWindow::~MainWindow()
@@ -25,18 +27,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_tableInitialized()
 {
     _table.clear();
-    while (!ui->tableLayout->children().isEmpty())
+    while (auto item = ui->tableLayout->takeAt(0))
     {
-        auto firstChildObject = ui->tableLayout->children()[0];
-        auto firstChildWidget = qobject_cast<QWidget*>(firstChildObject);
-        if (firstChildWidget)
-        {
-            ui->tableLayout->removeWidget(firstChildWidget);
-        }
+        delete item->widget();
     }
 
     int modelTableSize = _model->getSize();
-    int size = width() / modelTableSize;
+    int size = _size / modelTableSize;
     for (int i = 0; i < modelTableSize; ++i)
     {
         QVector<XOWidget*> row;
@@ -61,6 +58,21 @@ void MainWindow::on_gameWon(Player player)
 {
     QMessageBox mb(this);
     mb.exec();
+    resetButtonsConnections();
+}
+
+void MainWindow::on_newGameTriggered()
+{
+    NewGameDialog dialog;
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        int size = dialog.getCheckedSize();
+        _model->initTable(size);
+    }
+}
+
+void MainWindow::resetButtonsConnections()
+{
     int modelTableSize = _model->getSize();
     for (int i = 0; i < modelTableSize; ++i)
     {
