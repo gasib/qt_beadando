@@ -1,7 +1,14 @@
 #include "gomokumodel.h"
 
+#include <QRandomGenerator>
+
 GomokuModel::GomokuModel(QObject *parent)
     : QObject{parent}
+{
+
+}
+
+GomokuModel::~GomokuModel()
 {
 
 }
@@ -12,17 +19,23 @@ void GomokuModel::checkTable(int x, int y)
         return;
 
     _table[x][y] = _currentPlayer;
+    reloadMaxNeighbor(_currentPlayer);
     emit tableChanged(x, y, _currentPlayer);
     if (isAllChecked())
     {
         emit gameOver();
         return;
     }
-    if (maxNeighboring(x, y) >= 5)
+    if (_maximumNeighbor[_currentPlayer] >= 5)
     {
-        gameWon(_currentPlayer);
+        emit gameWon(_currentPlayer);
         return;
     }
+    if (_maximumNeighbor[_currentPlayer] >= 3)
+    {
+        mess(_currentPlayer);
+    }
+    _playerCoordinates[_currentPlayer].append(QPair<int,int>(x,y));
     _currentPlayer = _currentPlayer == Player::X ? Player::O : Player::X;
 }
 
@@ -34,8 +47,10 @@ int GomokuModel::getSize() const
 void GomokuModel::initTable(int size)
 {
     _currentPlayer = Player::X;
-    _maxNeighborPlayerX = 0;
-    _maxNeighborPlayerO = 0;
+    _maximumNeighbor[Player::X] = 0;
+    _maximumNeighbor[Player::O] = 0;
+    _playerCoordinates[Player::X].clear();
+    _playerCoordinates[Player::O].clear();
     _tableSize = size;
     _table.clear();
     for (int i = 0; i < size; ++i)
@@ -95,4 +110,29 @@ bool GomokuModel::isAllChecked()
         }
     }
     return true;
+}
+
+void GomokuModel::mess(Player player)
+{
+    int maximumNeighbor = _maximumNeighbor[player];
+    int numberGenerationCounter =  maximumNeighbor == 3 ? 1 : 2;
+    for (int i = 0; i < numberGenerationCounter; ++i)
+    {
+        int randomNumber = QRandomGenerator::global()->bounded(_playerCoordinates[player].size());
+        QPair<int,int> coordinate = _playerCoordinates[player][randomNumber];
+        _table[coordinate.first][coordinate.second] = Player::None;
+        emit tableChanged(coordinate.first, coordinate.second, Player::None);
+        _playerCoordinates[player].removeAt(randomNumber);
+    }
+}
+
+void GomokuModel::reloadMaxNeighbor(Player player)
+{
+    int maximum = 0;
+    for (auto coordinate: _playerCoordinates[player])
+    {
+        int neighboring = maxNeighboring(coordinate.first, coordinate.second);
+        maximum = neighboring > maximum ? neighboring : maximum;
+    }
+    _maximumNeighbor[player] = maximum;
 }

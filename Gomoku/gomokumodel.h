@@ -5,16 +5,14 @@
 
 #include <QObject>
 #include <QVector>
-
-enum class Direction {
-    Top, TopRight, Right, BottomRight, Bottom, BottomLeft, Left, TopLeft
-};
+#include <QMap>
 
 class GomokuModel : public QObject
 {
     Q_OBJECT
 public:
     explicit GomokuModel(QObject *parent = nullptr);
+    ~GomokuModel();
 
     void checkTable(int x, int y);
     int getSize() const;
@@ -35,15 +33,17 @@ private:
     int maxNeighboring(int x, int y);
     int checkInDirection(int x, int y, int dirx, int diry, int current, Player player);
     bool isAllChecked();
+    void mess(Player player);
+    void reloadMaxNeighbor(Player player);
 
 private:
 
     QVector<QVector<Player>> _table;
+    QMap<Player, int> _maximumNeighbor;
+    QMap<Player, QVector<QPair<int,int>>> _playerCoordinates;
     Player _currentPlayer;
     int _tableSize;
 
-    int _maxNeighborPlayerX;
-    int _maxNeighborPlayerO;
 };
 
 #endif // GOMOKUMODEL_H
