@@ -7,6 +7,8 @@
 #include <QVector>
 #include <QMap>
 
+class IPersistence;
+
 class GomokuModel : public QObject
 {
     Q_OBJECT
@@ -17,6 +19,8 @@ public:
     void checkTable(int x, int y);
     int getSize() const;
     void initTable(int size);
+    void save(QString filename, IPersistence& persistence);
+    void load(QString filename, IPersistence& persistence);
 
 signals:
 
