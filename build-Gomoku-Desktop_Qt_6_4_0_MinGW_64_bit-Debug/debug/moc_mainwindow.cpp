@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[20];
+    uint offsetsAndSizes[22];
     char stringdata0[11];
     char stringdata1[20];
     char stringdata2[1];
@@ -37,6 +37,7 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata7[15];
     char stringdata8[11];
     char stringdata9[7];
+    char stringdata10[20];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -51,7 +52,8 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(52, 6),  // "Player"
         QT_MOC_LITERAL(59, 14),  // "playerSelected"
         QT_MOC_LITERAL(74, 10),  // "on_gameWon"
-        QT_MOC_LITERAL(85, 6)   // "player"
+        QT_MOC_LITERAL(85, 6),  // "player"
+        QT_MOC_LITERAL(92, 19)   // "on_newGameTriggered"
     },
     "MainWindow",
     "on_tableInitialized",
@@ -62,7 +64,8 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "Player",
     "playerSelected",
     "on_gameWon",
-    "player"
+    "player",
+    "on_newGameTriggered"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -73,7 +76,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,14 +84,16 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   32,    2, 0x08,    1 /* Private */,
-       3,    3,   33,    2, 0x08,    2 /* Private */,
-       8,    1,   40,    2, 0x08,    6 /* Private */,
+       1,    0,   38,    2, 0x08,    1 /* Private */,
+       3,    3,   39,    2, 0x08,    2 /* Private */,
+       8,    1,   46,    2, 0x08,    6 /* Private */,
+      10,    0,   49,    2, 0x08,    8 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, 0x80000000 | 6,    4,    5,    7,
     QMetaType::Void, 0x80000000 | 6,    9,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -111,7 +116,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<Player, std::false_type>,
         // method 'on_gameWon'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<Player, std::false_type>
+        QtPrivate::TypeAndForceComplete<Player, std::false_type>,
+        // method 'on_newGameTriggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -125,6 +132,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->on_tableInitialized(); break;
         case 1: _t->on_tableChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<Player>>(_a[3]))); break;
         case 2: _t->on_gameWon((*reinterpret_cast< std::add_pointer_t<Player>>(_a[1]))); break;
+        case 3: _t->on_newGameTriggered(); break;
         default: ;
         }
     }
@@ -149,13 +157,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
