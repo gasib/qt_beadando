@@ -25,6 +25,8 @@ private slots:
     void on_tableChanged(int x, int y, Player playerSelected);
     void on_gameWon(Player player);
     void on_newGameTriggered();
+    void on_saveGameTriggered();
+    void on_loadGameTriggered();
 
 private:
 

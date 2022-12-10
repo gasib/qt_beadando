@@ -2,7 +2,10 @@
 #include "ui_mainwindow.h"
 
 #include "newgamedialog.h"
+#include "filemanager.h"
 
+#include <QFileDialog>
+#include <QLabel>
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -10,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     _model = new GomokuModel(this);
 
     connect(_model, &GomokuModel::tableInitialized, this, &MainWindow::on_tableInitialized);
@@ -41,6 +45,7 @@ void MainWindow::on_tableInitialized()
         {
             XOWidget* newWidget = new XOWidget();
             newWidget->setFixedSize(QSize(size, size));
+            newWidget->setType(_model->getTable()[i][j]);
             connect(newWidget, &XOWidget::clicked, this, [=](){ _model->checkTable(i,j); });
             row.append(newWidget);
             ui->tableLayout->addWidget(newWidget, i, j, Qt::AlignCenter);
@@ -69,6 +74,20 @@ void MainWindow::on_newGameTriggered()
         int size = dialog.getCheckedSize();
         _model->initTable(size);
     }
+}
+
+void MainWindow::on_saveGameTriggered()
+{
+    auto fileName = QFileDialog::getSaveFileName(this, "Save Game", "./", "Save Files (*.sav)");
+    IPersistence* manager = new Filemanager(this);
+    _model->save(fileName, manager);
+}
+
+void MainWindow::on_loadGameTriggered()
+{
+    auto fileName = QFileDialog::getOpenFileName(this, "Load Game", "./", "Save Files (*.sav)");
+    IPersistence* manager = new Filemanager(this);
+    _model->load(fileName, manager);
 }
 
 void MainWindow::resetButtonsConnections()
