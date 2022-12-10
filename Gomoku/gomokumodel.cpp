@@ -36,8 +36,7 @@ void GomokuModel::checkTable(int x, int y)
         mess(_currentPlayer);
     }
     _playerCoordinates[_currentPlayer].append(QPair<int,int>(x,y));
-    _currentPlayer = _currentPlayer == Player::X ? Player::O : Player::X;
-    emit currentPlayerChanged();
+    setCurrentPlayer(_currentPlayer == Player::X ? Player::O : Player::X);
 }
 
 void GomokuModel::setCurrentPlayer(Player player)
@@ -57,8 +56,7 @@ void GomokuModel::setTable(QVector<QVector<Player> > newTable)
 
 void GomokuModel::initTable(int size)
 {
-    _currentPlayer = Player::X;
-    emit currentPlayerChanged();
+    setCurrentPlayer(Player::X);
     _maximumNeighbor[Player::X] = 0;
     _maximumNeighbor[Player::O] = 0;
     _playerCoordinates[Player::X].clear();
@@ -80,11 +78,15 @@ void GomokuModel::initTable(int size)
 void GomokuModel::save(QString filename, IPersistence* persistence)
 {
     bool res = persistence->save(filename, this);
+    if (res == false)
+        emit fileError();
 }
 
 void GomokuModel::load(QString filename, IPersistence *persistence)
 {
     bool res = persistence->load(filename, this);
+    if (res == false)
+        emit fileError();
 }
 
 bool GomokuModel::canBeChecked(int x, int y)

@@ -36,6 +36,7 @@ signals:
     void gameWon(Player player);
     void gameOver();
     void currentPlayerChanged();
+    void fileError();
 
 private:
 
