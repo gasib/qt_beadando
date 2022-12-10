@@ -11,14 +11,17 @@ CONFIG += c++17
 SOURCES += \
     filemanager.cpp \
     gomokumodel.cpp \
+    ipersistence.cpp \
     main.cpp \
     mainwindow.cpp \
     newgamedialog.cpp \
+    player.cpp \
     xowidget.cpp
 
 HEADERS += \
     filemanager.h \
     gomokumodel.h \
+    ipersistence.h \
     mainwindow.h \
     newgamedialog.h \
     player.h \
