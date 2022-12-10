@@ -48,6 +48,7 @@ public:
         formLayout->setObjectName("formLayout");
         rb6 = new QRadioButton(groupBox_2);
         rb6->setObjectName("rb6");
+        rb6->setChecked(true);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, rb6);
 
