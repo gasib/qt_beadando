@@ -56,6 +56,7 @@ void MainWindow::on_tableInitialized()
         }
         _table.append(row);
     }
+    ui->actionSave_Game->setEnabled(true);
 }
 
 void MainWindow::on_tableChanged(int x, int y, Player playerSelected)
@@ -66,6 +67,7 @@ void MainWindow::on_tableChanged(int x, int y, Player playerSelected)
 void MainWindow::on_gameWon(Player player)
 {
     QMessageBox::information(this, "Won", "Congratulations! Player " + playerToString(player) + " won.");
+    ui->actionSave_Game->setEnabled(false);
     resetButtonsConnections();
     _model->initTable(_model->getSize());
 }
@@ -73,6 +75,7 @@ void MainWindow::on_gameWon(Player player)
 void MainWindow::on_draw()
 {
     QMessageBox::information(this, "Draw", "Game over. No one wins.");
+    ui->actionSave_Game->setEnabled(false);
     resetButtonsConnections();
     _model->initTable(_model->getSize());
 }
