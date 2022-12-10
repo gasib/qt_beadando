@@ -47,10 +47,20 @@ void GomokuModel::setCurrentPlayer(Player player)
 
 void GomokuModel::setTable(QVector<QVector<Player> > newTable)
 {
+    _playerCoordinates[Player::X].clear();
+    _playerCoordinates[Player::O].clear();
     if (newTable.size() != _tableSize)
         _tableSize = newTable.size();
 
     _table = newTable;
+    for (int i = 0; i < _tableSize; ++i)
+    {
+        for (int j = 0; j < _tableSize; ++j)
+        {
+            auto player = _table[i][j];
+            _playerCoordinates[player].append(QPair<int,int>(i,j));
+        }
+    }
     emit tableInitialized();
 }
 
