@@ -1,11 +1,14 @@
 release/filemanager.o
 release/gomokumodel.o
+release/ipersistence.o
 release/main.o
 release/mainwindow.o
 release/newgamedialog.o
+release/player.o
 release/xowidget.o
 release/moc_filemanager.o
 release/moc_gomokumodel.o
+release/moc_ipersistence.o
 release/moc_mainwindow.o
 release/moc_newgamedialog.o
 release/moc_xowidget.o

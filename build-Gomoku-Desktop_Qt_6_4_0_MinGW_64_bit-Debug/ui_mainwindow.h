@@ -65,6 +65,8 @@ public:
 
         retranslateUi(MainWindow);
         QObject::connect(actionNew_Game, SIGNAL(triggered()), MainWindow, SLOT(on_newGameTriggered()));
+        QObject::connect(actionSave_Game, SIGNAL(triggered()), MainWindow, SLOT(on_saveGameTriggered()));
+        QObject::connect(actionLoad_Game, SIGNAL(triggered()), MainWindow, SLOT(on_loadGameTriggered()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi

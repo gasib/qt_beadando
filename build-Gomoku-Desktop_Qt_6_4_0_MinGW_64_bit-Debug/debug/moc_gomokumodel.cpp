@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_GomokuModel_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[24];
     char stringdata0[12];
     char stringdata1[17];
     char stringdata2[1];
@@ -38,6 +38,7 @@ struct qt_meta_stringdata_GomokuModel_t {
     char stringdata8[16];
     char stringdata9[8];
     char stringdata10[9];
+    char stringdata11[21];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_GomokuModel_t::offsetsAndSizes) + ofs), len 
@@ -53,7 +54,8 @@ Q_CONSTINIT static const qt_meta_stringdata_GomokuModel_t qt_meta_stringdata_Gom
         QT_MOC_LITERAL(54, 6),  // "player"
         QT_MOC_LITERAL(61, 15),  // "invalidPosition"
         QT_MOC_LITERAL(77, 7),  // "gameWon"
-        QT_MOC_LITERAL(85, 8)   // "gameOver"
+        QT_MOC_LITERAL(85, 8),  // "gameOver"
+        QT_MOC_LITERAL(94, 20)   // "currentPlayerChanged"
     },
     "GomokuModel",
     "tableInitialized",
@@ -65,7 +67,8 @@ Q_CONSTINIT static const qt_meta_stringdata_GomokuModel_t qt_meta_stringdata_Gom
     "player",
     "invalidPosition",
     "gameWon",
-    "gameOver"
+    "gameOver",
+    "currentPlayerChanged"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -76,25 +79,27 @@ Q_CONSTINIT static const uint qt_meta_data_GomokuModel[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       5,       // signalCount
+       6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   44,    2, 0x06,    1 /* Public */,
-       3,    3,   45,    2, 0x06,    2 /* Public */,
-       8,    2,   52,    2, 0x06,    6 /* Public */,
-       9,    1,   57,    2, 0x06,    9 /* Public */,
-      10,    0,   60,    2, 0x06,   11 /* Public */,
+       1,    0,   50,    2, 0x06,    1 /* Public */,
+       3,    3,   51,    2, 0x06,    2 /* Public */,
+       8,    2,   58,    2, 0x06,    6 /* Public */,
+       9,    1,   63,    2, 0x06,    9 /* Public */,
+      10,    0,   66,    2, 0x06,   11 /* Public */,
+      11,    0,   67,    2, 0x06,   12 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, 0x80000000 | 6,    4,    5,    7,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    4,    5,
     QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -124,6 +129,8 @@ Q_CONSTINIT const QMetaObject GomokuModel::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<Player, std::false_type>,
         // method 'gameOver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'currentPlayerChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -140,6 +147,7 @@ void GomokuModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 2: _t->invalidPosition((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
         case 3: _t->gameWon((*reinterpret_cast< std::add_pointer_t<Player>>(_a[1]))); break;
         case 4: _t->gameOver(); break;
+        case 5: _t->currentPlayerChanged(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -179,6 +187,13 @@ void GomokuModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
                 return;
             }
         }
+        {
+            using _t = void (GomokuModel::*)();
+            if (_t _q_method = &GomokuModel::currentPlayerChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 5;
+                return;
+            }
+        }
     }
 }
 
@@ -201,13 +216,13 @@ int GomokuModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
@@ -243,6 +258,12 @@ void GomokuModel::gameWon(Player _t1)
 void GomokuModel::gameOver()
 {
     QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
+}
+
+// SIGNAL 5
+void GomokuModel::currentPlayerChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

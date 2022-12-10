@@ -52,36 +52,45 @@ OBJECTS_DIR   = debug
 
 SOURCES       = ..\Gomoku\filemanager.cpp \
 		..\Gomoku\gomokumodel.cpp \
+		..\Gomoku\ipersistence.cpp \
 		..\Gomoku\main.cpp \
 		..\Gomoku\mainwindow.cpp \
 		..\Gomoku\newgamedialog.cpp \
+		..\Gomoku\player.cpp \
 		..\Gomoku\xowidget.cpp debug\moc_filemanager.cpp \
 		debug\moc_gomokumodel.cpp \
+		debug\moc_ipersistence.cpp \
 		debug\moc_mainwindow.cpp \
 		debug\moc_newgamedialog.cpp \
 		debug\moc_xowidget.cpp
 OBJECTS       = debug/filemanager.o \
 		debug/gomokumodel.o \
+		debug/ipersistence.o \
 		debug/main.o \
 		debug/mainwindow.o \
 		debug/newgamedialog.o \
+		debug/player.o \
 		debug/xowidget.o \
 		debug/moc_filemanager.o \
 		debug/moc_gomokumodel.o \
+		debug/moc_ipersistence.o \
 		debug/moc_mainwindow.o \
 		debug/moc_newgamedialog.o \
 		debug/moc_xowidget.o
 
 DIST          =  ..\Gomoku\filemanager.h \
 		..\Gomoku\gomokumodel.h \
+		..\Gomoku\ipersistence.h \
 		..\Gomoku\mainwindow.h \
 		..\Gomoku\newgamedialog.h \
 		..\Gomoku\player.h \
 		..\Gomoku\xowidget.h ..\Gomoku\filemanager.cpp \
 		..\Gomoku\gomokumodel.cpp \
+		..\Gomoku\ipersistence.cpp \
 		..\Gomoku\main.cpp \
 		..\Gomoku\mainwindow.cpp \
 		..\Gomoku\newgamedialog.cpp \
+		..\Gomoku\player.cpp \
 		..\Gomoku\xowidget.cpp
 QMAKE_TARGET  = Gomoku
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -102,10 +111,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Gomoku.zip $(SOURCES) $(DIST) ..\Gomoku\Gomoku.pro E:\Qt\6.4.0\mingw_64\mkspecs\features\spec_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\device_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\common\sanitize.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\gcc-base.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\g++-base.conf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf E:\Qt\6.4.0\mingw_64\mkspecs\common\windows-vulkan.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\g++-win32.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\windows-desktop.conf E:\Qt\6.4.0\mingw_64\mkspecs\qconfig.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_freetype.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_libpng.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_concurrent.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_core.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_core_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_dbus.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designer.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designer_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_gui.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_gui_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_help.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_help_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssettings.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_linguist.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_network.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_network_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_opengl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_png_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_printsupport.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qml.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qml_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmltest.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quick.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quick_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_sql.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_sql_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svg.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svg_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_testlib.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_tools_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uitools.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_widgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_xml.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_xml_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\features\qt_functions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qt_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\win32-g++\qmake.conf E:\Qt\6.4.0\mingw_64\mkspecs\features\spec_post.prf .qmake.stash E:\Qt\6.4.0\mingw_64\mkspecs\features\exclusive_builds.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\toolchain.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\default_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\default_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resolve_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\exclusive_builds_post.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\default_post.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\build_pass.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qml_debug.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\entrypoint.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\precompile_header.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\warn_on.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qt.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resources_functions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resources.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\moc.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\opengl.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\uic.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qmake_use.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\file_copies.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\windows.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\testcase_targets.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\exceptions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\yacc.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\lex.prf ..\Gomoku\Gomoku.pro E:\Qt\6.4.0\mingw_64\lib\Qt6Widgets.prl E:\Qt\6.4.0\mingw_64\lib\Qt6Gui.prl E:\Qt\6.4.0\mingw_64\lib\Qt6Core.prl E:\Qt\6.4.0\mingw_64\lib\Qt6EntryPoint.prl    E:\Qt\6.4.0\mingw_64\mkspecs\features\data\dummy.cpp ..\Gomoku\filemanager.h ..\Gomoku\gomokumodel.h ..\Gomoku\mainwindow.h ..\Gomoku\newgamedialog.h ..\Gomoku\player.h ..\Gomoku\xowidget.h  ..\Gomoku\filemanager.cpp ..\Gomoku\gomokumodel.cpp ..\Gomoku\main.cpp ..\Gomoku\mainwindow.cpp ..\Gomoku\newgamedialog.cpp ..\Gomoku\xowidget.cpp ..\Gomoku\mainwindow.ui ..\Gomoku\newgamedialog.ui    
+	$(ZIP) Gomoku.zip $(SOURCES) $(DIST) ..\Gomoku\Gomoku.pro E:\Qt\6.4.0\mingw_64\mkspecs\features\spec_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\device_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\common\sanitize.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\gcc-base.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\g++-base.conf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf E:\Qt\6.4.0\mingw_64\mkspecs\common\windows-vulkan.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\g++-win32.conf E:\Qt\6.4.0\mingw_64\mkspecs\common\windows-desktop.conf E:\Qt\6.4.0\mingw_64\mkspecs\qconfig.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_freetype.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_ext_libpng.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_concurrent.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_core.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_core_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_dbus.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designer.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designer_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_gui.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_gui_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_help.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_help_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssettings.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_linguist.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_network.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_network_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_opengl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_png_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_printsupport.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qml.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qml_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmltest.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quick.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quick_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_sql.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_sql_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svg.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svg_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_testlib.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_tools_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uitools.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_widgets.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_xml.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_xml_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri E:\Qt\6.4.0\mingw_64\mkspecs\features\qt_functions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qt_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\win32-g++\qmake.conf E:\Qt\6.4.0\mingw_64\mkspecs\features\spec_post.prf .qmake.stash E:\Qt\6.4.0\mingw_64\mkspecs\features\exclusive_builds.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\toolchain.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\default_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\default_pre.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resolve_config.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\exclusive_builds_post.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\default_post.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\build_pass.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qml_debug.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\entrypoint.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\precompile_header.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\warn_on.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qt.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resources_functions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\resources.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\moc.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\opengl.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\uic.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\qmake_use.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\file_copies.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\win32\windows.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\testcase_targets.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\exceptions.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\yacc.prf E:\Qt\6.4.0\mingw_64\mkspecs\features\lex.prf ..\Gomoku\Gomoku.pro E:\Qt\6.4.0\mingw_64\lib\Qt6Widgets.prl E:\Qt\6.4.0\mingw_64\lib\Qt6Gui.prl E:\Qt\6.4.0\mingw_64\lib\Qt6Core.prl E:\Qt\6.4.0\mingw_64\lib\Qt6EntryPoint.prl    E:\Qt\6.4.0\mingw_64\mkspecs\features\data\dummy.cpp ..\Gomoku\filemanager.h ..\Gomoku\gomokumodel.h ..\Gomoku\ipersistence.h ..\Gomoku\mainwindow.h ..\Gomoku\newgamedialog.h ..\Gomoku\player.h ..\Gomoku\xowidget.h  ..\Gomoku\filemanager.cpp ..\Gomoku\gomokumodel.cpp ..\Gomoku\ipersistence.cpp ..\Gomoku\main.cpp ..\Gomoku\mainwindow.cpp ..\Gomoku\newgamedialog.cpp ..\Gomoku\player.cpp ..\Gomoku\xowidget.cpp ..\Gomoku\mainwindow.ui ..\Gomoku\newgamedialog.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\filemanager.o debug\gomokumodel.o debug\main.o debug\mainwindow.o debug\newgamedialog.o debug\xowidget.o debug\moc_filemanager.o debug\moc_gomokumodel.o debug\moc_mainwindow.o debug\moc_newgamedialog.o debug\moc_xowidget.o
+	-$(DEL_FILE) debug\filemanager.o debug\gomokumodel.o debug\ipersistence.o debug\main.o debug\mainwindow.o debug\newgamedialog.o debug\player.o debug\xowidget.o debug\moc_filemanager.o debug\moc_gomokumodel.o debug\moc_ipersistence.o debug\moc_mainwindow.o debug\moc_newgamedialog.o debug\moc_xowidget.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -130,12 +139,11 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: E:/Qt/6.4.0/mingw_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -dM -E -o debug\moc_predefs.h E:\Qt\6.4.0\mingw_64\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_filemanager.cpp debug/moc_gomokumodel.cpp debug/moc_mainwindow.cpp debug/moc_newgamedialog.cpp debug/moc_xowidget.cpp
+compiler_moc_header_make_all: debug/moc_filemanager.cpp debug/moc_gomokumodel.cpp debug/moc_ipersistence.cpp debug/moc_mainwindow.cpp debug/moc_newgamedialog.cpp debug/moc_xowidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_filemanager.cpp debug\moc_gomokumodel.cpp debug\moc_mainwindow.cpp debug\moc_newgamedialog.cpp debug\moc_xowidget.cpp
+	-$(DEL_FILE) debug\moc_filemanager.cpp debug\moc_gomokumodel.cpp debug\moc_ipersistence.cpp debug\moc_mainwindow.cpp debug\moc_newgamedialog.cpp debug\moc_xowidget.cpp
 debug/moc_filemanager.cpp: ../Gomoku/filemanager.h \
-		../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -206,6 +214,9 @@ debug/moc_filemanager.cpp: ../Gomoku/filemanager.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/gomokumodel.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -217,7 +228,7 @@ debug/moc_filemanager.cpp: ../Gomoku/filemanager.h \
 	E:\Qt\6.4.0\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/build-Gomoku-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/debug/moc_predefs.h" -IE:/Qt/6.4.0/mingw_64/mkspecs/win32-g++ -I"C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/Gomoku" -IE:/Qt/6.4.0/mingw_64/include -IE:/Qt/6.4.0/mingw_64/include/QtWidgets -IE:/Qt/6.4.0/mingw_64/include/QtGui -IE:/Qt/6.4.0/mingw_64/include/QtCore -I. -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Gomoku\filemanager.h -o debug\moc_filemanager.cpp
 
 debug/moc_gomokumodel.cpp: ../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -288,6 +299,8 @@ debug/moc_gomokumodel.cpp: ../Gomoku/gomokumodel.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -298,9 +311,7 @@ debug/moc_gomokumodel.cpp: ../Gomoku/gomokumodel.h \
 		E:/Qt/6.4.0/mingw_64/bin/moc.exe
 	E:\Qt\6.4.0\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/build-Gomoku-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/debug/moc_predefs.h" -IE:/Qt/6.4.0/mingw_64/mkspecs/win32-g++ -I"C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/Gomoku" -IE:/Qt/6.4.0/mingw_64/include -IE:/Qt/6.4.0/mingw_64/include/QtWidgets -IE:/Qt/6.4.0/mingw_64/include/QtGui -IE:/Qt/6.4.0/mingw_64/include/QtCore -I. -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Gomoku\gomokumodel.h -o debug\moc_gomokumodel.cpp
 
-debug/moc_mainwindow.cpp: ../Gomoku/mainwindow.h \
-		../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+debug/moc_ipersistence.cpp: ../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -371,6 +382,85 @@ debug/moc_mainwindow.cpp: ../Gomoku/mainwindow.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		debug/moc_predefs.h \
+		E:/Qt/6.4.0/mingw_64/bin/moc.exe
+	E:\Qt\6.4.0\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/build-Gomoku-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/debug/moc_predefs.h" -IE:/Qt/6.4.0/mingw_64/mkspecs/win32-g++ -I"C:/Users/Beles/OneDrive - Eotvos Lorand Tudomanyegyetem/QT/qt_beadando/Gomoku" -IE:/Qt/6.4.0/mingw_64/include -IE:/Qt/6.4.0/mingw_64/include/QtWidgets -IE:/Qt/6.4.0/mingw_64/include/QtGui -IE:/Qt/6.4.0/mingw_64/include/QtCore -I. -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Gomoku\ipersistence.h -o debug\moc_ipersistence.cpp
+
+debug/moc_mainwindow.cpp: ../Gomoku/mainwindow.h \
+		../Gomoku/gomokumodel.h \
+		../Gomoku/ipersistence.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcore-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcoreexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsystemdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qprocessordetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtypeinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsysinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qlogging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qflags.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompare_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbasicatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qgenericatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobalstatic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnumeric.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qrefcount.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qpair.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydataops.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringliteral.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringbuilder.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qlist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qhashfunctions.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearraylist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringlist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringmatcher.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcoreevent.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qscopedpointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmetatype.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompare.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qscopeguard.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qdatastream.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiodevicebase.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterable.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmetacontainer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainerinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtaggedpointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -590,10 +680,9 @@ debug/moc_newgamedialog.cpp: ../Gomoku/newgamedialog.h \
 
 debug/moc_xowidget.cpp: ../Gomoku/xowidget.h \
 		../Gomoku/player.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobal.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig-bootstrapped.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig.h \
@@ -618,22 +707,11 @@ debug/moc_xowidget.cpp: ../Gomoku/xowidget.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qnumeric.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtgui-config.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiexports.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringview.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qrefcount.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qpair.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -648,6 +726,19 @@ debug/moc_xowidget.cpp: ../Gomoku/xowidget.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringtokenizer.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringbuilder.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtgui-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qlist.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qhashfunctions.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h \
@@ -757,8 +848,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 debug/filemanager.o: ../Gomoku/filemanager.cpp ../Gomoku/filemanager.h \
-		../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -829,16 +919,26 @@ debug/filemanager.o: ../Gomoku/filemanager.cpp ../Gomoku/filemanager.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/gomokumodel.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmap.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qshareddata.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qshareddata_impl.h
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qshareddata_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QFile \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qfile.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qfiledevice.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiodevice.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QTextStream \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtextstream.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringconverter_base.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\filemanager.o ..\Gomoku\filemanager.cpp
 
 debug/gomokumodel.o: ../Gomoku/gomokumodel.cpp ../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -909,6 +1009,8 @@ debug/gomokumodel.o: ../Gomoku/gomokumodel.cpp ../Gomoku/gomokumodel.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -919,9 +1021,82 @@ debug/gomokumodel.o: ../Gomoku/gomokumodel.cpp ../Gomoku/gomokumodel.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\gomokumodel.o ..\Gomoku\gomokumodel.cpp
 
+debug/ipersistence.o: ../Gomoku/ipersistence.cpp ../Gomoku/ipersistence.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcore-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcoreexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsystemdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qprocessordetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtypeinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsysinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qlogging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qflags.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompare_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbasicatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qgenericatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobalstatic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnumeric.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qrefcount.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qpair.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydataops.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringliteral.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringbuilder.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qlist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qhashfunctions.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearraylist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringlist.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringmatcher.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcoreevent.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qscopedpointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmetatype.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompare.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qscopeguard.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qdatastream.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiodevicebase.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterable.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmetacontainer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainerinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtaggedpointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ipersistence.o ..\Gomoku\ipersistence.cpp
+
 debug/main.o: ../Gomoku/main.cpp ../Gomoku/mainwindow.h \
 		../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -992,6 +1167,8 @@ debug/main.o: ../Gomoku/main.cpp ../Gomoku/mainwindow.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -1091,7 +1268,7 @@ debug/main.o: ../Gomoku/main.cpp ../Gomoku/mainwindow.h \
 
 debug/mainwindow.o: ../Gomoku/mainwindow.cpp ../Gomoku/mainwindow.h \
 		../Gomoku/gomokumodel.h \
-		../Gomoku/player.h \
+		../Gomoku/ipersistence.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QObject \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
@@ -1162,6 +1339,8 @@ debug/mainwindow.o: ../Gomoku/mainwindow.cpp ../Gomoku/mainwindow.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qmath.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject_impl.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/QMap \
@@ -1271,6 +1450,15 @@ debug/mainwindow.o: ../Gomoku/mainwindow.cpp ../Gomoku/mainwindow.h \
 		../Gomoku/newgamedialog.h \
 		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QDialog \
 		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qdialog.h \
+		../Gomoku/filemanager.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QFileDialog \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qfiledialog.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qdir.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qfile.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qfiledevice.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qfileinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qdatetime.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcalendar.h \
 		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QMessageBox \
 		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\Gomoku\mainwindow.cpp
@@ -1456,12 +1644,10 @@ debug/newgamedialog.o: ../Gomoku/newgamedialog.cpp ../Gomoku/newgamedialog.h \
 		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\newgamedialog.o ..\Gomoku\newgamedialog.cpp
 
-debug/xowidget.o: ../Gomoku/xowidget.cpp ../Gomoku/xowidget.h \
-		../Gomoku/player.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiglobal.h \
+debug/player.o: ../Gomoku/player.cpp ../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobal.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig-bootstrapped.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig.h \
@@ -1486,22 +1672,61 @@ debug/xowidget.o: ../Gomoku/xowidget.cpp ../Gomoku/xowidget.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qnumeric.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtgui-config.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiexports.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
-		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringview.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qrefcount.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qpair.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydataops.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearrayview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringliteral.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\player.o ..\Gomoku\player.cpp
+
+debug/xowidget.o: ../Gomoku/xowidget.cpp ../Gomoku/xowidget.h \
+		../Gomoku/player.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/QString \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstring.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qchar.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qconfig.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcore-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtcoreexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsystemdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qprocessordetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtypeinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qsysinfo.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qlogging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qflags.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qcompare_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbasicatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qgenericatomic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qglobalstatic.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnumeric.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qforeach.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringview.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qbytearray.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qrefcount.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qnamespace.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qtmetamacros.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qpair.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -1516,6 +1741,19 @@ debug/xowidget.o: ../Gomoku/xowidget.cpp ../Gomoku/xowidget.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringtokenizer.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qstringbuilder.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qwidget.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiglobal.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtgui-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qtguiexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		E:/Qt/6.4.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+		E:/Qt/6.4.0/mingw_64/include/QtCore/qobject.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qlist.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qhashfunctions.h \
 		E:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h \
@@ -1607,6 +1845,9 @@ debug/moc_filemanager.o: debug/moc_filemanager.cpp
 
 debug/moc_gomokumodel.o: debug/moc_gomokumodel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_gomokumodel.o debug\moc_gomokumodel.cpp
+
+debug/moc_ipersistence.o: debug/moc_ipersistence.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_ipersistence.o debug\moc_ipersistence.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_mainwindow.o debug\moc_mainwindow.cpp
