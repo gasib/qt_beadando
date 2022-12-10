@@ -65,14 +65,15 @@ void MainWindow::on_tableChanged(int x, int y, Player playerSelected)
 
 void MainWindow::on_gameWon(Player player)
 {
-    QMessageBox mb(this);
-    mb.exec();
+    QMessageBox::information(this, "Won", "Congratulations! Player " + playerToString(player) + " won.");
     resetButtonsConnections();
+    _model->initTable(_model->getSize());
 }
 
 void MainWindow::on_draw()
 {
     QMessageBox::information(this, "Draw", "Game over. No one wins.");
+    resetButtonsConnections();
     _model->initTable(_model->getSize());
 }
 
