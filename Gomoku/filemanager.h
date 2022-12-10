@@ -1,23 +1,11 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
 
+#include "ipersistence.h"
 #include "gomokumodel.h"
-#include "player.h"
 
 #include <QObject>
 #include <QVector>
-
-class IPersistence : public QObject
-{
-    Q_OBJECT
-
-public:
-
-    explicit IPersistence(QObject* parent = nullptr);
-
-    virtual void save(QString filename, GomokuModel& model) = 0;
-    virtual QVector<QVector<Player>> load(QString filename) = 0;
-};
 
 class Filemanager : public IPersistence
 {
@@ -25,8 +13,8 @@ class Filemanager : public IPersistence
 public:
     explicit Filemanager(QObject *parent = nullptr);
 
-    virtual void save(QString filename, GomokuModel& model) override;
-    virtual QVector<QVector<Player>> load(QString filename) override;
+    virtual bool save(QString filename, GomokuModel* model) override;
+    virtual bool load(QString filename, GomokuModel* model) override;
 
 signals:
 

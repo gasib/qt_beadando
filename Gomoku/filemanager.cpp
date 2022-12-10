@@ -1,23 +1,61 @@
 #include "filemanager.h"
 
+#include <QFile>
+#include <QTextStream>
+
 Filemanager::Filemanager(QObject *parent)
     : IPersistence{parent}
 {
 
 }
 
-void Filemanager::save(QString filename, GomokuModel &model)
+bool Filemanager::save(QString filename, GomokuModel* model)
 {
+    QFile file(filename);
+    if (!file.open(QFile::WriteOnly))
+        return false;
 
+    QTextStream stream(&file);
+    stream << model->getSize() << "\n";
+    stream << playerToString(model->getCurrentPlayer()) << "\n";
+    QVector<QVector<Player>> table = model->getTable();
+    for (int i = 0; i < model->getSize(); ++i)
+    {
+        QString str;
+        for (int j = 0; j < model->getSize(); ++j)
+        {
+            str.append(playerToString(table[i][j]));
+            if (j != model->getSize()-1)
+                str.append(';');
+        }
+        stream << str << "\n";
+    }
+    return true;
 }
 
-QVector<QVector<Player> > Filemanager::load(QString filename)
+bool Filemanager::load(QString filename, GomokuModel* model)
 {
+    QFile file(filename);
+    if (!file.open(QFile::ReadOnly))
+        return false;
 
-}
-
-IPersistence::IPersistence(QObject *parent)
-    : QObject(parent)
-{
-
+    QTextStream stream(&file);
+    int size = stream.readLine().toInt();
+    Player current = stringToPlayer(stream.readLine());
+    QVector<QVector<Player>> table;
+    for (int i = 0; i < size; ++i)
+    {
+        QVector<Player> row;
+        QString line = stream.readLine();
+        auto splitted = line.split(';');
+        for (auto word: splitted)
+        {
+            row.append(stringToPlayer(word));
+        }
+        table.append(row);
+    }
+    model->setSize(size);
+    model->setTable(table);
+    model->setCurrentPlayer(current);
+    return true;
 }
