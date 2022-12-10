@@ -1,6 +1,7 @@
 #ifndef GOMOKUMODEL_H
 #define GOMOKUMODEL_H
 
+#include "ipersistence.h"
 #include "player.h"
 
 #include <QObject>
@@ -17,10 +18,15 @@ public:
     ~GomokuModel();
 
     void checkTable(int x, int y);
-    int getSize() const;
+    int getSize() const { return _tableSize; };
+    void setSize(int newSize) { _tableSize = newSize; };
+    Player getCurrentPlayer() const { return _currentPlayer; };
+    void setCurrentPlayer(Player player);
+    QVector<QVector<Player>> getTable() const { return _table; };
+    void setTable(QVector<QVector<Player>> newTable);
     void initTable(int size);
-    void save(QString filename, IPersistence& persistence);
-    void load(QString filename, IPersistence& persistence);
+    void save(QString filename, IPersistence* persistence);
+    void load(QString filename, IPersistence* persistence);
 
 signals:
 
@@ -29,6 +35,7 @@ signals:
     void invalidPosition(int x, int y);
     void gameWon(Player player);
     void gameOver();
+    void currentPlayerChanged();
 
 private:
 
@@ -47,7 +54,6 @@ private:
     QMap<Player, QVector<QPair<int,int>>> _playerCoordinates;
     Player _currentPlayer;
     int _tableSize;
-
 };
 
 #endif // GOMOKUMODEL_H
