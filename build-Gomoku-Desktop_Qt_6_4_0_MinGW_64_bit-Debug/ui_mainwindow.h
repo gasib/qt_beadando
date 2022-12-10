@@ -42,6 +42,7 @@ public:
         actionNew_Game->setObjectName("actionNew_Game");
         actionSave_Game = new QAction(MainWindow);
         actionSave_Game->setObjectName("actionSave_Game");
+        actionSave_Game->setEnabled(false);
         actionLoad_Game = new QAction(MainWindow);
         actionLoad_Game->setObjectName("actionLoad_Game");
         centralwidget = new QWidget(MainWindow);
