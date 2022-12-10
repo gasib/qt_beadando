@@ -19,8 +19,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_model, &GomokuModel::tableInitialized, this, &MainWindow::on_tableInitialized);
     connect(_model, &GomokuModel::tableChanged, this, &MainWindow::on_tableChanged);
     connect(_model, &GomokuModel::gameWon, this, &MainWindow::on_gameWon);
+    connect(_model, &GomokuModel::gameOver, this, &MainWindow::on_draw);
+    connect(_model, &GomokuModel::currentPlayerChanged, this, &MainWindow::on_currentPlayerChanged);
+    connect(_model, &GomokuModel::fileError, this, &MainWindow::on_fileError);
 
-    _size = width();
+    _size = width() < height() ? width() : height();
 }
 
 MainWindow::~MainWindow()
@@ -38,6 +41,7 @@ void MainWindow::on_tableInitialized()
 
     int modelTableSize = _model->getSize();
     int size = _size / modelTableSize;
+    auto table = _model->getTable();
     for (int i = 0; i < modelTableSize; ++i)
     {
         QVector<XOWidget*> row;
@@ -45,7 +49,7 @@ void MainWindow::on_tableInitialized()
         {
             XOWidget* newWidget = new XOWidget();
             newWidget->setFixedSize(QSize(size, size));
-            newWidget->setType(_model->getTable()[i][j]);
+            newWidget->setType(table[i][j]);
             connect(newWidget, &XOWidget::clicked, this, [=](){ _model->checkTable(i,j); });
             row.append(newWidget);
             ui->tableLayout->addWidget(newWidget, i, j, Qt::AlignCenter);
@@ -64,6 +68,12 @@ void MainWindow::on_gameWon(Player player)
     QMessageBox mb(this);
     mb.exec();
     resetButtonsConnections();
+}
+
+void MainWindow::on_draw()
+{
+    QMessageBox::information(this, "Draw", "Game over. No one wins.");
+    _model->initTable(_model->getSize());
 }
 
 void MainWindow::on_newGameTriggered()
@@ -88,6 +98,16 @@ void MainWindow::on_loadGameTriggered()
     auto fileName = QFileDialog::getOpenFileName(this, "Load Game", "./", "Save Files (*.sav)");
     IPersistence* manager = new Filemanager(this);
     _model->load(fileName, manager);
+}
+
+void MainWindow::on_currentPlayerChanged()
+{
+    ui->statusBar->showMessage("Current Player: " + playerToString(_model->getCurrentPlayer()));
+}
+
+void MainWindow::on_fileError()
+{
+    QMessageBox::warning(this, "File Error", "An error occured during file management.");
 }
 
 void MainWindow::resetButtonsConnections()
