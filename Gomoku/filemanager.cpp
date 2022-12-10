@@ -41,6 +41,8 @@ bool Filemanager::load(QString filename, GomokuModel* model)
 
     QTextStream stream(&file);
     int size = stream.readLine().toInt();
+    if (!(size == 6 || size == 10 || size == 14))
+        return false;
     Player current = stringToPlayer(stream.readLine());
     QVector<QVector<Player>> table;
     for (int i = 0; i < size; ++i)
@@ -53,6 +55,13 @@ bool Filemanager::load(QString filename, GomokuModel* model)
             row.append(stringToPlayer(word));
         }
         table.append(row);
+    }
+    if (table.size() != size)
+        return false;
+    for (int i = 0; i < table.size(); ++i)
+    {
+        if (table[i].size() != size)
+            return false;
     }
     model->setSize(size);
     model->setTable(table);
