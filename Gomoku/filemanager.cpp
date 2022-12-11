@@ -41,7 +41,7 @@ bool Filemanager::load(QString filename, GomokuModel* model)
 
     QTextStream stream(&file);
     int size = stream.readLine().toInt();
-    if (!(size == 6 || size == 10 || size == 14))
+    if (std::find(possibleSizes.begin(), possibleSizes.end(), size) == possibleSizes.end())
         return false;
     Player current = stringToPlayer(stream.readLine());
     QVector<QVector<Player>> table;

@@ -16,6 +16,10 @@ public:
 
 signals:
 
+protected:
+
+    const static inline QVector<int> possibleSizes = {6, 10, 14};
+
 };
 
 #endif // IPERSISTENCE_H
