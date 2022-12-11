@@ -92,16 +92,26 @@ void MainWindow::on_newGameTriggered()
 
 void MainWindow::on_saveGameTriggered()
 {
-    auto fileName = QFileDialog::getSaveFileName(this, "Save Game", "./", "Save Files (*.sav)");
-    IPersistence* manager = new Filemanager(this);
-    _model->save(fileName, manager);
+    QFileDialog saveDialog(this, "Save Game", "./", "Save Files (*.sav)");
+    saveDialog.setAcceptMode(QFileDialog::AcceptSave);
+    saveDialog.setFileMode(QFileDialog::AnyFile);
+    if (saveDialog.exec() == QDialog::Accepted)
+    {
+        IPersistence* manager = new Filemanager(this);
+        _model->save(saveDialog.selectedFiles()[0], manager);
+    }
 }
 
 void MainWindow::on_loadGameTriggered()
 {
-    auto fileName = QFileDialog::getOpenFileName(this, "Load Game", "./", "Save Files (*.sav)");
-    IPersistence* manager = new Filemanager(this);
-    _model->load(fileName, manager);
+    QFileDialog loadDialog(this, "Load Game", "./", "Save Files (*.sav)");
+    loadDialog.setAcceptMode(QFileDialog::AcceptOpen);
+    loadDialog.setFileMode(QFileDialog::AnyFile);
+    if (loadDialog.exec() == QDialog::Accepted)
+    {
+        IPersistence* manager = new Filemanager(this);
+        _model->load(loadDialog.selectedFiles()[0], manager);
+    }
 }
 
 void MainWindow::on_currentPlayerChanged()
