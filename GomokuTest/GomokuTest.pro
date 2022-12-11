@@ -6,7 +6,8 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_gomokumodeltest.cpp
+SOURCES +=  tst_gomokumodeltest.cpp \
+    ipersistencemock.cpp
 SOURCES += \
     ../Gomoku/gomokumodel.cpp \
     ../Gomoku/ipersistence.cpp \
@@ -15,4 +16,5 @@ SOURCES += \
 HEADERS += \
     ../Gomoku/gomokumodel.h \
     ../Gomoku/ipersistence.h \
-    ../Gomoku/player.h
+    ../Gomoku/player.h \
+    ipersistencemock.h

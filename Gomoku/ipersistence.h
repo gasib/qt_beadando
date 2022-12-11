@@ -11,7 +11,7 @@ class IPersistence : public QObject
 public:
     explicit IPersistence(QObject *parent = nullptr);
 
-    virtual bool save(QString filename, GomokuModel* model) = 0;
+    virtual bool save(QString filename, const GomokuModel* model) = 0;
     virtual bool load(QString filename, GomokuModel* model) = 0;
 
 signals:

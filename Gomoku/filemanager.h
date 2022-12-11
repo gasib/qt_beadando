@@ -13,7 +13,7 @@ class Filemanager : public IPersistence
 public:
     explicit Filemanager(QObject *parent = nullptr);
 
-    virtual bool save(QString filename, GomokuModel* model) override;
+    virtual bool save(QString filename, const GomokuModel* model) override;
     virtual bool load(QString filename, GomokuModel* model) override;
 
 signals:

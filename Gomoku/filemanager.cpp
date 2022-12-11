@@ -9,7 +9,7 @@ Filemanager::Filemanager(QObject *parent)
 
 }
 
-bool Filemanager::save(QString filename, GomokuModel* model)
+bool Filemanager::save(QString filename, const GomokuModel* model)
 {
     QFile file(filename);
     if (!file.open(QFile::WriteOnly))

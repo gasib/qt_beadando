@@ -3,6 +3,7 @@
 // add necessary includes here
 #include "../Gomoku/gomokumodel.h"
 #include "../Gomoku/player.h"
+#include "ipersistencemock.h"
 
 class GomokuModelTest : public QObject
 {
@@ -16,6 +17,8 @@ private slots:
     void test_checkTable();
     void test_mess_data();
     void test_mess();
+    void test_save();
+    void test_load();
 };
 
 void GomokuModelTest::test_tableInitialization()
@@ -165,7 +168,32 @@ void GomokuModelTest::test_mess()
     QCOMPARE(counter, expectedPlayerAfterCheck);
 }
 
+void GomokuModelTest::test_save()
+{
+    IPersistenceMock mock;
+    GomokuModel gm;
+    QSignalSpy spy(&mock, &IPersistenceMock::saved);
+    gm.save("test", &mock);
+    QCOMPARE(spy.count(), 1);
+}
 
+void GomokuModelTest::test_load()
+{
+    int testSize = 2;
+    Player testPlayer = Player::O;
+    QVector<QVector<Player>> testTable = {
+        { Player::X, Player::O },
+        { Player::None, Player::X }
+    };
+    IPersistenceMock mock(testSize, testTable, testPlayer);
+    GomokuModel gm;
+    QSignalSpy spy(&mock, &IPersistenceMock::loaded);
+    gm.load("test", &mock);
+    QCOMPARE(spy.count(), 1);
+    QCOMPARE(gm.getSize(), testSize);
+    QCOMPARE(gm.getCurrentPlayer(), testPlayer);
+    QCOMPARE(gm.getTable(), testTable);
+}
 
 QTEST_APPLESS_MAIN(GomokuModelTest)
 

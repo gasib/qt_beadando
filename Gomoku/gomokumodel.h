@@ -8,8 +8,6 @@
 #include <QVector>
 #include <QMap>
 
-class IPersistence;
-
 class GomokuModel : public QObject
 {
     Q_OBJECT
